@@ -1,16 +1,16 @@
-### Hi there 👋
+<div align="justify">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://i.ibb.co/h8RXPjV/output-gif.gif">
+    <source media="(prefers-color-scheme: light)" srcset="https://i.ibb.co/h8RXPjV/output-gif.gif">
+    <img alt="GIF_OS" src="https://i.ibb.co/h8RXPjV/output-gif.gif">
+</picture>
 
-<!--
-**mementomorri/mementomorri** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<sub><i>Generated automatically using [x0rzavi/github-readme-terminal](https://github.com/x0rzavi/github-readme-terminal) on Thu Dec 21 11:43:07 PM MSK 2023</i></sub>
 
-Here are some ideas to get you started:
+<details>
+<summary>More details</summary>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+</details>
+</div>
+
+<!-- Image deletion URL: https://ibb.co/3hyfDqc/ca2cd69d6275b01d97bd4ae3ad096434 -->

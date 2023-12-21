@@ -3,15 +3,10 @@ from zoneinfo import ZoneInfo
 
 import gifos
 
-FONT_FILE_LOGO = "./fonts/vtks-blocketo.regular.ttf"
-# FONT_FILE_BITMAP = "./fonts/ter-u14n.pil"
-FONT_FILE_BITMAP = "./fonts/gohufont-uni-14.pil"
-FONT_FILE_TRUETYPE = "./fonts/IosevkaTermNerdFont-Bold.ttf"
-FONT_FILE_MONA = "./fonts/Inversionz.otf"
 
 
 def main():
-    t = gifos.Terminal(750, 500, 15, 15, FONT_FILE_BITMAP, 15)
+    t = gifos.Terminal(750, 500, 15, 15,)
     t.set_fps(15)
 
     t.gen_text("", 1, count=20)
@@ -24,9 +19,9 @@ def main():
         "Press \x1b[94mF2\x1b[0m to enter SETUP, \x1b[94mESC\x1b[0m to skip Memory Test",
         t.num_rows,
     )
-    for i in range(0, 65653, 7168):  # 64K Memory
+    for i in range(0, 65653*2, 7168):  # 128K Memory
         t.delete_row(7)
-        if i < 30000:
+        if i < 60000:
             t.gen_text(
                 f"Memory Test: {i}", 7, count=2, contin=True
             )  # slow down upto a point
@@ -40,7 +35,6 @@ def main():
     t.gen_text("Initiating Boot Sequence ", 1, contin=True)
     t.gen_typing_text(".....", 1, contin=True)
     t.gen_text("\x1b[96m", 1, count=0, contin=True)  # buffer to be removed
-    t.set_font(FONT_FILE_LOGO, 66)
     # t.toggle_show_cursor(True)
     os_logo_text = "WELCOME..."
     mid_row = (t.num_rows + 1) // 2
@@ -52,7 +46,6 @@ def main():
         t.delete_row(mid_row + 1)
         t.gen_text(effect_lines[i], mid_row + 1, mid_col + 1)
 
-    t.set_font(FONT_FILE_BITMAP, 15)
     t.clear_frame()
     t.clone_frame(5)
     t.toggle_show_cursor(False)
@@ -80,17 +73,17 @@ def main():
 
     ignore_repos = ["archiso-zfs", "archiso-zfs-archive"]
     git_user_details = gifos.utils.fetch_github_stats("mementomorri", ignore_repos)
-    user_age = gifos.utils.calc_age(26, 7, 2002)
+    user_age = gifos.utils.calc_age(23, 4, 1998)
     t.clear_frame()
     top_languages = [lang[0] for lang in git_user_details.languages_sorted]
     user_details_lines = f"""
     \x1b[30;101mmementomorri@GitHub\x1b[0m
     --------------
     \x1b[96mOS:     \x1b[93mCentOS/Debian Linux\x1b[0m
-    \x1b[96mHost:   \x1b[93mOpen Source Society University \x1b[94m#NSEC\x1b[0m
-    \x1b[96mKernel: \x1b[93mComputer Science & Engineering \x1b[94m#CSE\x1b[0m
+    \x1b[96mHost:   \x1b[93mOpen Source Society University
+    \x1b[96mKernel: \x1b[93mComputer Science & Engineering
     \x1b[96mUptime: \x1b[93m{user_age.years} years, {user_age.months} months, {user_age.days} days\x1b[0m
-    \x1b[96mIDE:    \x1b[93mvim, VSCode, JetBrain(IDES)\x1b[0m
+    \x1b[96mIDE:    \x1b[93mvim, VSCode, JetBrain\x1b[0m
     
     \x1b[30;101mContact:\x1b[0m
     --------------
@@ -116,69 +109,35 @@ def main():
     t.gen_text("\x1b[92mfetch.sh\x1b[0m", 1, contin=True)
     t.gen_typing_text(" -u mementomorri", 1, contin=True)
 
-    t.set_font(FONT_FILE_MONA, 16, 0)
     t.toggle_show_cursor(False)
-                                                                #    monaLines = r"""
-                                                                #    \x1b[49m     \x1b[90;100m}}\x1b[49m     \x1b[90;100m}}\x1b[0m
-                                                                #    \x1b[49m    \x1b[90;100m}}}}\x1b[49m   \x1b[90;100m}}}}\x1b[0m
-                                                                #    \x1b[49m    \x1b[90;100m}}}}}\x1b[49m \x1b[90;100m}}}}}\x1b[0m
-                                                                #    \x1b[49m   \x1b[90;100m}}}}}}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m   \x1b[90;100m}}}}}}}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m   \x1b[90;100m}}\x1b[37;47m}}}}}}}\x1b[90;100m}}}}}\x1b[0m
-                                                                #    \x1b[49m  \x1b[90;100m}}\x1b[37;47m}}}}}}}}}}\x1b[90;100m}}}\x1b[0m
-                                                                #    \x1b[49m  \x1b[90;100m}}\x1b[37;47m}\x1b[90;100m}\x1b[37;47m}}}}}\x1b[90;100m}\x1b[37;47m}}\x1b[90;100m}}}}\x1b[0m
-                                                                #    \x1b[49m  \x1b[90;100m}\x1b[37;47m}}\x1b[90;100m}\x1b[37;47m}}}}}\x1b[90;100m}\x1b[37;47m}}}\x1b[90;100m}}}\x1b[0m
-                                                                #    \x1b[90;100m}}}\x1b[37;47m}}}}\x1b[90;100m}}}\x1b[37;47m}}}}}\x1b[90;100m}}}}\x1b[0m
-                                                                #    \x1b[49m  \x1b[90;100m}\x1b[37;47m}}}}}\x1b[90;100m}}\x1b[37;47m}}}}}\x1b[90;100m}}}\x1b[0m
-                                                                #    \x1b[49m \x1b[90;100m}}\x1b[37;47m}}}}}}}}}}}}\x1b[90;100m}}}\x1b[0m
-                                                                #    \x1b[90;100m}\x1b[49m  \x1b[90;100m}}\x1b[37;47m}}}}}}}}\x1b[90;100m}}}\x1b[49m  \x1b[90;100m}\x1b[0m
-                                                                #    \x1b[49m        \x1b[90;100m}}}}}\x1b[0m
-                                                                #    \x1b[49m       \x1b[90;100m}}}}}}}\x1b[0m
-                                                                #    \x1b[49m       \x1b[90;100m}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m      \x1b[90;100m}}}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m     \x1b[90;100m}}}}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m     \x1b[90;100m}}}}}}}}}}}}\x1b[0m
-                                                                #    \x1b[49m     \x1b[90;100m}}\x1b[49m \x1b[90;100m}}}}}}\x1b[49m \x1b[90;100m}}\x1b[0m
-                                                                #    \x1b[49m        \x1b[90;100m}}}}}}}\x1b[0m
-    #    \x1b[49m         \x1b[90;100m}}}\x1b[49m \x1b[90;100m}}\x1b[0m
-    #    """
+
     monaLines = r"""
-                                        ..                                          
-                                          ,,                                    
-                     ##                          ,/.                            
-                               *(((*.                          .                
-                          ,(((((((((((((.                                       
-                       ((((((((((((((((((((*                                    
-                    *((((**(((((((((((((((((((, .                               
-       ... ... *  ,,*****/((((((((((((((((((((((*. .........  .....   . /       
-     ........ ####.....*((((((((((((((((((((((((((*,......., ........,.....     
-    ...........(#....,*(((((((((((((((((((((((((((((**.................... ..   
-   .................**((((((((((((((((((((((((((((((((**,................./...  
-  ##/.......,@@@@@#**((((((((((((((((((((((((((((((((((***,(@@@@@@@.......(.... 
- .#........&@@@@&(**(((((((((((((((((((((################////#@@@@@@............
- .,........@@@@%#**/(((((((((##%##########################////##@@@@&........,..
- ..........@@@%(///######################################(((((((((###,,,,,,...,,
-(*******,,,(###////#########################((((((((((((((((((((((((((((((((((((
-(((((((/******/////############%#(((((((((((((((((((((((((#########(************
-(((((((((((((((((((((((((((((((((((((((((((((################%%####*************
- ,,,/(((((((((((((((((((((((((((############%%@@@@@@@@@@@@@@@@@@@&##,,,,,,,,****
- ,,,,,(,,,,*#################%%&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#(,,,,(%,,,,,
- ,,,,,(,,,,(%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#,*,*,,,*,,,
-  ,,,,,,,,,(@@@@@@,         ,@@@@@@@@@@@@@@@@@@@@@@@#         .@@@@@(********** 
-   ,,,,,,,,*@@@@@@@%            @@@@@@@@@@@@@@@@@,           .@@@@@@**********  
-    ,**#@&(,(@@@@@@@@@#          (@@@@@@@@@@@@@&          .@@@@@@@@(**#&@(***   
-     ,*,*,,,,&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@********.    
-       **#@(**#@@@@@@@@@@@@@@@@@@@@@@@%  ,@@@@@@@@@@@@@@@@@@@@@@@#***/%***      
-         *****(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@******        
-           **%****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*******          
-             .*******(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%******             
-                 *********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&********                
-                     *****#********%&%&&@@@@&#/*************                    
-                         .****#************************
-    """
+                                               
+                                               
+                                               
+              .         ..          .          
+          .        /(((((((((           .      
+               ,(((((((((((((((.               
+     .  .#,,/((((((((((((((((((((,             
+        ###(   ((((((((((((((((((((.           
+  ,          ,(((((((((((((((((((((((          
+ *      @@@@((((((((((((((((((((((((((#@@@@    
+        @@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@@.   
+        @@%%%%%%%##(((((((((((((##%%%%%%%&@    
+     /(((((((((((((((((((((((((((((((((((((((( 
+    ./((((((((((((((((((((((((((((((((((((((/*.
+        @@@@@   .(@@@@@@@@@@@@@@@&*.   @@@@.   
+ *      @@@@@/       @@@@@@@@@%       @@@@@    
+  .  (.  @@@@@@@@&&&&&@@@@@@@@&&&&&@@@@@@@(  * 
+      .@, @@@@@@@@@@@@@@@/#@@@@@@@@@@@@@@. #&  
+     .   @  @@@@@@@@@@@@@@@@@@@@@@@@@@@, (/  . 
+               &@@@@@@@@@@@@@@@@@@@@,          
+          .         .#&@@@@@@%,         .      
+              .                     .          
+
+           """
     t.gen_text(monaLines, 10)
 
-    t.set_font(FONT_FILE_BITMAP)
     t.toggle_show_cursor(True)
     # t.pasteImage("./temp/x0rzavi.jpg", 3, 5, sizeMulti=0.5)
     t.gen_text(user_details_lines, 2, 35, count=5, contin=True)
