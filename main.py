@@ -143,7 +143,7 @@ def main():
     t.gen_text(user_details_lines, 2, 35, count=5, contin=True)
     t.gen_prompt(t.curr_row)
     t.gen_typing_text(
-        "\x1b[92m# Have a nice day, felicidades. Thanks for stopping by!",
+        "\x1b[92m# Have a nice day, felicidades. Thanks for hopping by!",
         t.curr_row,
         contin=True,
     )
