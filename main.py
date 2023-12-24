@@ -35,7 +35,6 @@ def main():
     t.gen_text("Initiating Boot Sequence ", 1, contin=True)
     t.gen_typing_text(".....", 1, contin=True)
     t.gen_text("\x1b[96m", 1, count=0, contin=True)  # buffer to be removed
-    # t.toggle_show_cursor(True)
     os_logo_text = "WELCOME..."
     mid_row = (t.num_rows + 1) // 2
     mid_col = (t.num_cols - len(os_logo_text) + 1) // 2
@@ -98,7 +97,8 @@ def main():
     \x1b[96mTotal PRs: \x1b[93m{git_user_details.total_pull_requests_made}\x1b[0m
     \x1b[96mMerged PR %: \x1b[93m{git_user_details.pull_requests_merge_percentage}\x1b[0m
     \x1b[96mTotal Contributions: \x1b[93m{git_user_details.total_repo_contributions}\x1b[0m
-    \x1b[96mTop Languages: \x1b[93m{', '.join(top_languages[:5])}\x1b[0m
+    \x1b[96mTop Languages: \x1b[93m{', '.join(top_languages[:4])},\x1b[0m
+    \x1b[96m{top_languages[4]}\x1b[0m
     """
     t.gen_prompt(1)
     prompt_col = t.curr_col
