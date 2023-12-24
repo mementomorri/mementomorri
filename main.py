@@ -98,7 +98,7 @@ def main():
     \x1b[96mMerged PR %: \x1b[93m{git_user_details.pull_requests_merge_percentage}\x1b[0m
     \x1b[96mTotal Contributions: \x1b[93m{git_user_details.total_repo_contributions}\x1b[0m
     \x1b[96mTop Languages: \x1b[93m{', '.join(top_languages[:4])},\x1b[0m
-    \x1b[96m{top_languages[4]}\x1b[0m
+    \x1b[93m{top_languages[4]}\x1b[0m
     """
     t.gen_prompt(1)
     prompt_col = t.curr_col
@@ -134,7 +134,7 @@ def main():
              &@@@@@@@@@@@@@@@@@@@@,          
         .         .#&@@@@@@%,         .      
             .                     .          
-
+                                                                    
            """
     t.gen_text(monaLines, 10)
 
