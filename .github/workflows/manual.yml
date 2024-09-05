@@ -32,4 +32,4 @@ jobs:
         run: |
           git add README.md
           git -c "user.name=bot" -c "user.email=bot@github.com" commit -m "Automatically updated on $(TZ='Europe/Moscow' date)"
-          git push --force
+          git push
