@@ -1,13 +1,26 @@
-![hippo](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif)
-<div>
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://i.ibb.co/h83JnFF/output-gif.gif">
-    <source media="(prefers-color-scheme: light)" srcset="https://i.ibb.co/h83JnFF/output-gif.gif">
-    <img alt="GIF_OS" src="https://i.ibb.co/h83JnFF/output-gif.gif">
-</picture>
+# Alex Karsten | Backend Developer
 
-<!-- <sub><i>Generated automatically using [x0rzavi/github-readme-terminal](https://github.com/x0rzavi/github-readme-terminal) on Thu Sep 05 01:57:12 PM MSK 2024</i></sub>-->
+**Architect of code magic & cofee**
 
-</div>
+I turn caffeine into **endpoints** and **save costs** (true story btw). My code runs while I sleep, handling requests without breaking a sweat.
 
-<!-- Image deletion URL: https://ibb.co/cT4Sphh/b2cef3e3f79842256ef3014c55b7656e -->
+```js
+skills = {
+    "languages": ["Python", "SQL", "Go"],
+    "frameworks": ["FastAPI", "Flask", "asyncio", "Gin"],
+    "databases": ["PostgreSQL", "MySQL", "ClickHouse", "Redis"],
+    "messaging": ["RabbitMQ", "Kafka"],
+    "infrastructure": ["Docker", "Kubernetes", "Grafana"],
+    "special_powers": ["Fixing prod at 3 AM"]
+}
+```
+
+## Find me
+
+- 📧 `karsten.alexey@gmail.com`
+- 📱 `t.me/AlexeyKarsten`
+- 💻 `github.com/mementomorri`
+
+*“You miss 100% of the shots you don't take - Wayne Gretzky - Michael Scott.”*
+
+---
