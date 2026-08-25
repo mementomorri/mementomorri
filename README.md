@@ -7,7 +7,7 @@ I turn caffeine into **endpoints** and **save costs** (true story btw). My code 
 ```js
 skills = {
     "languages": ["Python", "SQL", "Go"],
-    "frameworks": ["FastAPI", "Flask", "asyncio", "Gin"],
+    "frameworks": ["FastAPI", "Django", "asyncio", "Gin"],
     "databases": ["PostgreSQL", "MySQL", "ClickHouse", "Redis"],
     "messaging": ["RabbitMQ", "Kafka"],
     "infrastructure": ["Docker", "Kubernetes", "Grafana"],
